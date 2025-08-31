@@ -30,7 +30,7 @@ let
 
   # # Utils
   systemFunc = nixpkgs.lib.nixosSystem;
-  # homeManager = home-manager.nixosModules;
+  homeManager = home-manager.nixosModules.home-manager;
 in
 systemFunc rec {
   system = machine_meta.system;
@@ -38,17 +38,19 @@ systemFunc rec {
     # Apply overlays
     { nixpkgs.overlays = overlays; }
     { nixpkgs.config.allowUnfree = true; }
-
     machineConfig
+    
+    OSConfig
+
     userMachineConfig
     userOSConfig
-    # homeManager
-    # {
-    #   home-manager.useGlobalPkgs = true;
-    #   home-manager.useUserPackages = true;
-    #   home-manager.users.${user} = import userHMConfig {
-    #     inherit inputs;
-    #   };
-    # }
+    homeManager
+    {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.users.${user} = import userHMConfig {
+        inherit inputs;
+      };
+    }
   ];
 }
