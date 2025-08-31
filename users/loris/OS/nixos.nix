@@ -4,6 +4,7 @@
   pkgs,
   lib,
   options,
+  users,
   ...
 }@inputs:
 let
@@ -17,7 +18,6 @@ in
       "networkmanager"
       "wheel"
     ];
-    packages = [ pkgs.firefox ];
   };
   imports = [
     "${modulesDir}/audio/pipewire.nix"

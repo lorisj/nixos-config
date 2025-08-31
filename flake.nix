@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf.url = "github:notashelf/nvf";
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
@@ -15,6 +16,7 @@
       self,
       nixpkgs,
       home-manager,
+      nvf,
       ...
     }@inputs:
     let
@@ -25,6 +27,7 @@
           overlays
           nixpkgs
           home-manager
+	  nvf
           ;
       };
       registry = import ./lib/registry.nix;

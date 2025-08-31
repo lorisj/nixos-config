@@ -23,12 +23,9 @@ in
     inputs.nix-colors.homeManagerModules.default
     "${displayBaseDir}/alacritty.nix"
     "${developmentBaseDir}/nix-dev.nix"
+    #"${developmentBaseDir}/neovim.nix" # this breaks for some reason even though the file exists?
   ];
   home.packages = [];
-
-  programs.neovim = {
-    enable = true;
-  };
 
   programs.git = {
     enable = true;

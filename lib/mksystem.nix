@@ -3,6 +3,7 @@
   overlays,
   inputs,
   home-manager,
+  nvf,
 }:
 {
   machine,
@@ -31,7 +32,7 @@ let
     userHMConfig = "${userBaseDir}/home-manager.nix";
   };
   specialArgs = {
-     inherit inputs moduleBaseDir machine OS users;
+     inherit inputs moduleBaseDir machine OS users nvf;
   };
 
   ## for each user, should have: {user : import thisUsersHMConfig specialArgs}
