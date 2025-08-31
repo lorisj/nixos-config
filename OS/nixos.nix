@@ -15,6 +15,7 @@
     vim 
     wget
     git
+    gnumake # makefiles
   ];
 
   # Enable networking

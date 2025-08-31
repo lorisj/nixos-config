@@ -44,6 +44,7 @@ let
 in
 systemFunc rec {
   system = machine_meta.system;
+  specialArgs = { inherit inputs; };
   modules = [
     # Apply overlays
     { nixpkgs.overlays = overlays; }
