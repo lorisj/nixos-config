@@ -17,13 +17,15 @@ let
   };
   displayBaseDir = "${moduleBaseDir}/display";
   developmentBaseDir = "${moduleBaseDir}/development";
+  neovimBaseDir = "${developmentBaseDir}/neovim";
 in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
     "${displayBaseDir}/alacritty.nix"
     "${developmentBaseDir}/nix-dev.nix"
-    #"${developmentBaseDir}/neovim.nix" # this breaks for some reason even though the file exists?
+    "${developmentBaseDir}/neovim.nix"
+    #"${neovimBaseDir}/config.nix"  # doesnt work for some reason
   ];
   home.packages = [];
 
