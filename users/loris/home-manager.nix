@@ -24,8 +24,7 @@ in
     inputs.nix-colors.homeManagerModules.default
     "${displayBaseDir}/alacritty.nix"
     "${developmentBaseDir}/nix-dev.nix"
-    "${developmentBaseDir}/neovim.nix"
-    #"${neovimBaseDir}/config.nix"  # doesnt work for some reason
+    "${neovimBaseDir}/config.nix"  
   ];
   home.packages = [];
 
