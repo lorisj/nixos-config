@@ -1,9 +1,9 @@
-{ inputs, moduleBaseDir, ... }:
-
 {
   config,
   lib,
   pkgs,
+  inputs,
+  moduleBaseDir,
   ...
 }:
 
@@ -15,11 +15,14 @@ let
     gchc = "git checkout";
     gpsh = "git push";
   };
+  displayBaseDir = "${moduleBaseDir}/display";
+  developmentBaseDir = "${moduleBaseDir}/development";
 in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    "${moduleBaseDir}/display/alacritty.nix"
+    "${displayBaseDir}/alacritty.nix"
+    "${developmentBaseDir}/nix-dev.nix"
   ];
   home.packages = [];
 

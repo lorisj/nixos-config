@@ -38,7 +38,7 @@ let
   home-manager-users-set = builtins.listToAttrs (
     builtins.map (user: {
       name = user;
-      value = import ((getConfigFilesForUser user).userHMConfig) specialArgs;
+      value = import ((getConfigFilesForUser user).userHMConfig);
     }) users
   );
 
@@ -63,6 +63,7 @@ systemFunc rec {
 
     homeManager
     {
+      home-manager.extraSpecialArgs = specialArgs; # pass specialArgs to each HM module
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
 
