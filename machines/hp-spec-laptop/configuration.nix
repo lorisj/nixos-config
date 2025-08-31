@@ -5,6 +5,10 @@
   modulesPath,
   ...
 }:
+# TODO: in the future make a basic hardware template that: 
+# 1) imports ./meta.nix as variable
+# 2) sets hostname, timezone (move this as well)
+# 3) imports ./hardware-configuration.nix
 let
   meta = import ./meta.nix;
 in

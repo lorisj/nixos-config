@@ -1,9 +1,9 @@
 # Makefile
-switch:
+
+hp-spec-switch:
 	sudo nixos-rebuild switch --flake .#hp-spec-laptop
 
-build:
+hp-spec-build:
 	nixos-rebuild build --flake .#hp-spec-laptop
-
-boot:
+hp-spec-boot:
 	sudo nixos-rebuild boot --flake .#hp-spec-laptop

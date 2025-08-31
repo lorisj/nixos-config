@@ -1,47 +1,49 @@
-# NixOS config
+# NixOS Config
 
-This is my NixOS config. 
+This repository hosts my NixOS configuration.
 
-It is split up into three distinctions:
+The configuration is organized along three layers:
 
-1. **Machine:** The physical hardware machine, i.e. `my-dell-laptop`, `my-desktop-workstation`
-2. **OS:** The OS (for now just `nixos`, in the future maybe `wsl` and `darwin`) 
-3. **User:** The end user/account.
- 
+1. **Machine:**  physical hardware (e.g. `hp-spec-laptop`, `my-desktop-workstation`)
+2. **OS:**  operating system layer (currently only `nixos`, in the future may add `wsl` and `darwin`)
+3. **User:**  individual user account
 
-## File structure
-The config is split up as follows:
+## Layout
 
+```
+lib/
+machines/
+modules/
+OS/
+users/
+```
 
-### `/lib`
-#### `mksystem.nix`    
-Given a machine, OS, and set of users, build a system with that OS and users.
-#### `registry.nix`:
-Actually define the targets, i.e. if I wanted user `loris` on system 
+### `lib/`
+* `mksystem.nix`:  given a machine, OS and list of users, returns a nixosConfiguration.
+* `registry.nix`:  register which machine/OS/user combinations to use.
 
-### `/machines/`
-For each physical machine `machine-name`, create folder `/machines/machine-name`, and in there, create:
+### `machines/`
 
-#### `.../configuration.nix`
-Global configuration (machine wide, meaning independent of OS and user) here.
-#### `.../hardware-configuration.nix`
-Generated file when running `nixos-generate-config --root /mnt`
-#### `.../meta.nix`
-Define systemwide constants/metadata, in particular the following are required:
-- system
-- hostName
+Each physical machine has a directory `machines/<name>/` containing:
 
-### `/modules/`
-These represent modules that are application specific, i.e. `/modules/display/` for window managers, `/modules/audio/` for pipewire, and so on.
+* `configuration.nix`:  machine-wide configuration that is independent of OS and users.
+* `hardware-configuration.nix`:  generated on the given machine by `nixos-generate-config --root /mnt`.
+* `meta.nix`:  metadata such as `system` and `hostName`.
 
-### `/OS`
-For each OS, define configurations that are independent of system and user here.
+### `modules/`
 
-### `/users/`
-#### `/users/${userName}/machine/`
-For each machine that `${userName}` is on, define user config that is independent of OS but specific to this machine and this user.
-#### `/users/${userName}/OS/`
-For each OS that `${userName}` is on, define user config that is independent of the system, but specific to this OS and this user.
-#### `/users/${userName}/home-manager.nix`
-User configuration that is specific to `${userName}`, but independant of OS and system.
+Reusable modules for specific applications. For instance:
 
+* `modules/display/`: for window managers
+* `modules/audio/`: for PipeWire, etc.
+
+### `OS/`
+Each OS (`nixos`, `wsl`, ...) has a nix file `<operating-system-name>.nix`, which is an OS-level configuration shared across machines and users.
+
+### `users/`
+
+Per-user configuration:
+
+* `users/<user>/machine/`:  settings for a user on a specific machine, independent of OS.
+* `users/<user>/OS/`: settings for a user on a specific OS, independent of machine.
+* `users/<user>/home-manager.nix`  user-specific configuration independent of machine or OS.
