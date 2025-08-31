@@ -30,12 +30,15 @@ let
     userMachineConfig = "${userBaseDir}/machine/${machine}.nix";
     userHMConfig = "${userBaseDir}/home-manager.nix";
   };
+  specialArgs = {
+     inherit inputs moduleBaseDir;
+  };
 
-  ## for each user, should have: {user : import thisUsersHMConfig { inherit inputs; }}
+  ## for each user, should have: {user : import thisUsersHMConfig specialArgs}
   home-manager-users-set = builtins.listToAttrs (
     builtins.map (user: {
       name = user;
-      value = import ((getConfigFilesForUser user).userHMConfig) { inherit inputs; };
+      value = import ((getConfigFilesForUser user).userHMConfig) specialArgs;
     }) users
   );
 
