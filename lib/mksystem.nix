@@ -31,7 +31,7 @@ let
     userHMConfig = "${userBaseDir}/home-manager.nix";
   };
   specialArgs = {
-     inherit inputs moduleBaseDir;
+     inherit inputs moduleBaseDir machine OS users;
   };
 
   ## for each user, should have: {user : import thisUsersHMConfig specialArgs}
@@ -52,7 +52,7 @@ in
 systemFunc rec {
   system = machine_meta.system;
   # inject these as params into all modules
-  specialArgs = { inherit inputs moduleBaseDir; };
+  inherit specialArgs;
   modules = [
     # Apply overlays
     { nixpkgs.overlays = overlays; }

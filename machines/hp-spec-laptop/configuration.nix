@@ -3,11 +3,12 @@
   lib,
   pkgs,
   modulesPath,
+  machine,
   ...
 }:
-# TODO: in the future make a basic hardware template that: 
+# TODO: in the future maybe make a basic hardware template that: 
 # 1) imports ./meta.nix as variable
-# 2) sets hostname, timezone (move this as well)
+# 2) sets timezone, other constants (move this as well)
 # 3) imports ./hardware-configuration.nix
 let
   meta = import ./meta.nix;
@@ -17,7 +18,7 @@ in
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = meta.hostName;
+  networking.hostName = machine;
 
   time.timeZone = "America/Los_Angeles";
 
