@@ -7,26 +7,36 @@
 {
   machine,
   OS,
-  user,
+  users,
 }:
 let
   rootConfigDir = ../.;
 
-  # # machine specific config
+  # machine specific config
   machineBaseDir = "${rootConfigDir}/machines/${machine}";
-  machineConfig  = "${machineBaseDir}/configuration.nix";
-  machine_meta   = import "${machineBaseDir}/meta.nix";
+  machineConfig = "${machineBaseDir}/configuration.nix";
+  machine_meta = import "${machineBaseDir}/meta.nix";
 
   OSConfigFilename = "/OS/${OS}.nix";
 
   OSConfig = rootConfigDir + OSConfigFilename;
 
-  # # User specific config (for each user, config for machine, OS, home-manager)
-  userBaseDir =  "${rootConfigDir}/users/${user}";
+  # Get user specific config (for each user, config for machine, OS, home-manager)
+  getConfigFilesForUser = user: rec {
+    userBaseDir = "${rootConfigDir}/users/${user}";
 
-  userOSConfig = userBaseDir + OSConfigFilename;
-  userMachineConfig = "${userBaseDir}/machine/${machine}.nix";
-  userHMConfig = "${userBaseDir}/home-manager.nix";
+    userOSConfig = userBaseDir + OSConfigFilename;
+    userMachineConfig = "${userBaseDir}/machine/${machine}.nix";
+    userHMConfig = "${userBaseDir}/home-manager.nix";
+  };
+
+  # for each user, should have: {user : import thisUsersHMConfig { inherit inputs; }}
+  home-manager-users-set = builtins.listToAttrs (
+    builtins.map (user: {
+      name = user;
+      value = import ((getConfigFilesForUser user).userHMConfig) { inherit inputs; };
+    }) users
+  );
 
   # # Utils
   systemFunc = nixpkgs.lib.nixosSystem;
@@ -39,18 +49,18 @@ systemFunc rec {
     { nixpkgs.overlays = overlays; }
     { nixpkgs.config.allowUnfree = true; }
     machineConfig
-    
+
     OSConfig
 
-    userMachineConfig
-    userOSConfig
     homeManager
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.${user} = import userHMConfig {
-        inherit inputs;
-      };
+
+      home-manager.users = home-manager-users-set;
     }
-  ];
+  ]
+  # no builtins.flatmap :(
+  ++ (builtins.map (user : (getConfigFilesForUser user).userMachineConfig) users)
+  ++ (builtins.map (user : (getConfigFilesForUser user).userOSConfig) users);
 }

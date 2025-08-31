@@ -8,12 +8,12 @@ in
 {
   machines = [ hpSpec ];
   operatingSystems = [ nixos ];
-  users = [loris];
+  users = [ loris ];
   configs = [
     {
       machine = hpSpec;
       OS = nixos;
-      user = loris;
+      users = [ loris ];
     }
   ];
 }
