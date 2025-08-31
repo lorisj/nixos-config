@@ -16,6 +16,7 @@
     wget
     git
     gnumake # makefiles
+    alacritty
   ];
 
   # Enable networking

@@ -10,9 +10,10 @@
   users,
 }:
 let
+  # Find directories/file locations:
   rootConfigDir = ../.;
 
-  # machine specific config
+  ## location for machine specific config
   machineBaseDir = "${rootConfigDir}/machines/${machine}";
   machineConfig = "${machineBaseDir}/configuration.nix";
   machine_meta = import "${machineBaseDir}/meta.nix";
@@ -21,7 +22,7 @@ let
 
   OSConfig = rootConfigDir + OSConfigFilename;
 
-  # Get user specific config (for each user, config for machine, OS, home-manager)
+  ## Get user specific config (for each user, config for machine, OS, home-manager)
   getConfigFilesForUser = user: rec {
     userBaseDir = "${rootConfigDir}/users/${user}";
 
@@ -30,7 +31,7 @@ let
     userHMConfig = "${userBaseDir}/home-manager.nix";
   };
 
-  # for each user, should have: {user : import thisUsersHMConfig { inherit inputs; }}
+  ## for each user, should have: {user : import thisUsersHMConfig { inherit inputs; }}
   home-manager-users-set = builtins.listToAttrs (
     builtins.map (user: {
       name = user;
@@ -38,13 +39,17 @@ let
     }) users
   );
 
-  # # Utils
+  ## module directory:
+  moduleBaseDir = "${rootConfigDir}/modules";
+
+  # Utils
   systemFunc = nixpkgs.lib.nixosSystem;
   homeManager = home-manager.nixosModules.home-manager;
 in
 systemFunc rec {
   system = machine_meta.system;
-  specialArgs = { inherit inputs; };
+  # inject these as params into all modules
+  specialArgs = { inherit inputs moduleBaseDir; };
   modules = [
     # Apply overlays
     { nixpkgs.overlays = overlays; }

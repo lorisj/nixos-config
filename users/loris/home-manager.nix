@@ -17,8 +17,9 @@ let
   };
 in
 {
-
-
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+  ];
   home.packages = [];
 
   programs.neovim = {
@@ -33,4 +34,8 @@ in
   };
 
   home.stateVersion = "25.05";
+
+  # https://github.com/tinted-theming/base16-schemes?tab=readme-ov-file
+  # for preview, see https://dt.iki.fi/base16-previews
+  colorScheme = inputs.nix-colors.colorSchemes.solarized-light;
 }
