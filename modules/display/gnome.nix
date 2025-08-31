@@ -11,6 +11,4 @@
     layout = "us";
     variant = "";
   };
-
-  xdg.enable = true;
 }

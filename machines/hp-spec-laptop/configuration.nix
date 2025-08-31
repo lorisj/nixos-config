@@ -6,7 +6,7 @@
   ...
 }:
 let
-  meta = ./meta.nix;
+  meta = import ./meta.nix;
 in
 {
   imports = [
@@ -35,4 +35,6 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   services.printing.enable = true;
+
+  system.stateVersion = "25.11";
 }

@@ -7,8 +7,8 @@
   ...
 }@inputs:
 let
-  baseDir = ../../.;
-  modulesDir = baseDir + "/modules";
+  baseDir = ../../../.;
+  modulesDir = "${baseDir}/modules";
 in
 {
   users.users.loris = {
@@ -19,8 +19,8 @@ in
     ];
     packages = [ pkgs.firefox ];
   };
-  modules = [
-    modulesDir + "/audio/pipewire.nix"
-    modulesDir + "display/gnome.nix"   
+  imports = [
+    "${modulesDir}/audio/pipewire.nix"
+    "${modulesDir}/display/gnome.nix"   
   ];
 }

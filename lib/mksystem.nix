@@ -2,7 +2,7 @@
   nixpkgs,
   overlays,
   inputs,
-  home-manager
+  home-manager,
 }:
 {
   machine,
@@ -12,25 +12,25 @@
 let
   rootConfigDir = ../.;
 
-  # machine specific config
-  machineBaseDir = rootConfigDir + "machines/${machine}";
-  machineConfig = machineBaseDir + "/configuration.nix"; # config for entire machine
-  machine_meta = import machineBaseDir/meta.nix;
+  # # machine specific config
+  machineBaseDir = "${rootConfigDir}/machines/${machine}";
+  machineConfig  = "${machineBaseDir}/configuration.nix";
+  machine_meta   = import "${machineBaseDir}/meta.nix";
 
   OSConfigFilename = "/OS/${OS}.nix";
 
   OSConfig = rootConfigDir + OSConfigFilename;
 
-  # User specific config (for each user, config for machine, OS, home-manager)
-  userBaseDir = rootConfigDir + "/users/${user}";
+  # # User specific config (for each user, config for machine, OS, home-manager)
+  userBaseDir =  "${rootConfigDir}/users/${user}";
 
   userOSConfig = userBaseDir + OSConfigFilename;
-  userMachineConfig = userBaseDir + "/machine/${machine}.nix";
-  userHMConfig = userBaseDir + "/home-manager.nix";
+  userMachineConfig = "${userBaseDir}/machine/${machine}.nix";
+  userHMConfig = "${userBaseDir}/home-manager.nix";
 
-  # Utils
+  # # Utils
   systemFunc = nixpkgs.lib.nixosSystem;
-  homeManager = home-manager.nixosModules;
+  # homeManager = home-manager.nixosModules;
 in
 systemFunc rec {
   system = machine_meta.system;
@@ -42,13 +42,13 @@ systemFunc rec {
     machineConfig
     userMachineConfig
     userOSConfig
-    home-manager.home-manager
-    {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users.${user} = import userHMConfig {
-        inherit inputs;
-      };
-    }
+    # homeManager
+    # {
+    #   home-manager.useGlobalPkgs = true;
+    #   home-manager.useUserPackages = true;
+    #   home-manager.users.${user} = import userHMConfig {
+    #     inherit inputs;
+    #   };
+    # }
   ];
 }
