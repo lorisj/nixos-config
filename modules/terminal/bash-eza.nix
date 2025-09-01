@@ -10,7 +10,7 @@ shellAliases = {
   };
 #colors = conifg.colorScheme.palette; # colors.base00, ... 
 in{
-  programs.exa = {
+  programs.eza = {
     enable = true;
   };
   programs.bash = {

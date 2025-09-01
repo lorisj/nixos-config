@@ -22,7 +22,7 @@ in
     "${neovimBaseDir}/config.nix"  
     "${webBaseDir}/firefox.nix"
     "${terminalBaseDir}/alacritty.nix"
-    "${terminalBaseDir}/bash-exa.nix"
+    "${terminalBaseDir}/bash-eza.nix"
     "${terminalBaseDir}/starship.nix"
   ];
   home.packages = [];
