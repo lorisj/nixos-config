@@ -4,5 +4,6 @@ let
 in{
   programs.starship = {
     enable = true;
+    settings = builtins.readFile ./starship-config.toml;
   };
 }
