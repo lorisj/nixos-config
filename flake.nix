@@ -27,9 +27,9 @@
     let
       overlays = [ ];
 
-      replace-by-attr-set = import ./lib/replace-by-attr-set.nix;
+      replace-by-set = import ./lib/replace-by-set.nix {lib = nixpkgs.lib;};
       
-      helpers = {replace-by-attr-set};
+      helpers = { inherit replace-by-set; };
 
       mkSystem = import ./lib/mksystem.nix {
         inherit

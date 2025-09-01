@@ -1,13 +1,13 @@
 format = """
-[](#9A348E)\
+[](#base0C)\
 $os\
 $username\
-[](bg:#DA627D fg:#9A348E)\
+[](bg:#base0D fg:#base0C)\
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+[](fg:#base0D bg:#base0F)\
 $git_branch\
 $git_status\
-[](fg:#FCA17D bg:#86BBD8)\
+[](fg:#base0F bg:#base0E)\
 $c\
 $elixir\
 $elm\
@@ -20,11 +20,11 @@ $nodejs\
 $nim\
 $rust\
 $scala\
-[](fg:#86BBD8 bg:#06969A)\
+[](fg:#base0E bg:#base03)\
 $docker_context\
-[](fg:#06969A bg:#33658A)\
+[](fg:#base03 bg:#base0A)\
 $time\
-[ ](fg:#33658A)\
+[ ](fg:#base0A)\
 """
 
 # Disable the blank line at the start of the prompt
@@ -34,19 +34,19 @@ $time\
 # and use the os module below
 [username]
 show_always = true
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
+style_user = "bg:#base0C"
+style_root = "bg:#base08"
 format = '[$user ]($style)'
 disabled = false
 
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
 [os]
-style = "bg:#9A348E"
+style = "bg:#base0C"
 disabled = true # Disabled by default
 
 [directory]
-style = "bg:#DA627D"
+style = "bg:#base0D"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -58,6 +58,7 @@ truncation_symbol = "…/"
 "downloads" = " "
 "Music" = " "
 "Pictures" = " "
+"nixos-config" = ""
 # Keep in mind that the order matters. For example:
 # "Important Documents" = " 󰈙 "
 # will not be replaced, because "Documents" was already substituted before.
@@ -91,11 +92,11 @@ format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D"
+style = "bg:#base0F"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#FCA17D"
+style = "bg:#base0F"
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
@@ -145,5 +146,5 @@ format = '[ $symbol ($version) ]($style)'
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
+style = "bg:#base0A"
 format = '[ ⏰ $time ]($style)'
