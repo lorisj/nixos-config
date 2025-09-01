@@ -8,7 +8,7 @@ shellAliases = {
     gcheck = "git checkout";
     gpush = "git push";
   };
-colors = conifg.colorScheme.palette; # colors.base00, ... 
+#colors = conifg.colorScheme.palette; # colors.base00, ... 
 in{
   programs.bash = {
     enable = true;
