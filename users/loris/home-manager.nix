@@ -39,5 +39,7 @@ in
 
   # https://github.com/tinted-theming/base16-schemes?tab=readme-ov-file
   # for preview, see https://dt.iki.fi/base16-previews
-  colorScheme = inputs.nix-colors.colorSchemes.solarized-dark;
+  #colorScheme = inputs.nix-colors.colorSchemes.espresso;
+  #colorScheme = inputs.nix-colors.colorSchemes.equilibrium-dark;
+  colorScheme = inputs.nix-colors.colorSchemes.danqing;
 }

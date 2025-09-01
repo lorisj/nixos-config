@@ -1,13 +1,13 @@
 format = """
-[](#base0C)\
+[](#base0F)\
 $os\
 $username\
-[](bg:#base0D fg:#base0C)\
+[](bg:#base0A fg:#base0F)\
 $directory\
-[](fg:#base0D bg:#base0F)\
+[](fg:#base0A bg:#base0B)\
 $git_branch\
 $git_status\
-[](fg:#base0F bg:#base0E)\
+[](fg:#base0B bg:#base0C)\
 $c\
 $elixir\
 $elm\
@@ -20,11 +20,11 @@ $nodejs\
 $nim\
 $rust\
 $scala\
-[](fg:#base0E bg:#base03)\
+[](fg:#base0C bg:#base0D)\
 $docker_context\
-[](fg:#base03 bg:#base02)\
+[](fg:#base0D bg:#base0E)\
 $time\
-[ ](fg:#base02)\
+[ ](fg:#base0E)\
 """
 
 # Disable the blank line at the start of the prompt
@@ -34,8 +34,8 @@ $time\
 # and use the os module below
 [username]
 show_always = true
-style_user = "bg:#base0C"
-style_root = "bg:#base08"
+style_user = "bg:#base0F"
+style_root = "bg:#base09"
 format = '[$user ]($style)'
 disabled = false
 
@@ -46,7 +46,7 @@ style = "bg:#base0C"
 disabled = true # Disabled by default
 
 [directory]
-style = "bg:#base0D"
+style = "fg:#base00 bg:#base0A"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -92,11 +92,11 @@ format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#base0F"
+style = "bg:#base0B"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#base0F"
+style = "bg:#base0B"
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
@@ -146,5 +146,5 @@ format = '[ $symbol ($version) ]($style)'
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#base02"
+style = "fg:#base00 bg:#base0E"
 format = '[ ⏰ $time ]($style)'

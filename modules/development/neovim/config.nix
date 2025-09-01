@@ -7,7 +7,7 @@
 }:
 let
   colors = config.colorScheme.palette;
-  themeName = builtins.replaceStrings ["-"] ["_"] config.colorScheme.slug; # lualine/etc wants _ not -
+  #themeName = builtins.replaceStrings ["-"] ["_"] config.colorScheme.slug; # lualine/etc wants _ not -
 in
 {
   imports = [
@@ -44,7 +44,8 @@ in
         };
         statusline.lualine = {
           enable = true;
-          theme = themeName;
+          #theme = themeName;
+          theme = "auto";
         };
         telescope.enable = true;
         autocomplete.nvim-cmp.enable = true;
