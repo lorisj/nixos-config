@@ -9,13 +9,8 @@
 
 let
   isLinux = pkgs.stdenv.isLinux;
-  shellAliases = {
-    gadd = "git add";
-    gcom = "git commit";
-    gchc = "git checkout";
-    gpsh = "git push";
-  };
-  displayBaseDir = "${moduleBaseDir}/display";
+  
+  terminalBaseDir = "${moduleBaseDir}/terminal";
   developmentBaseDir = "${moduleBaseDir}/development";
   neovimBaseDir = "${developmentBaseDir}/neovim";
   webBaseDir = "${moduleBaseDir}/web";
@@ -23,10 +18,12 @@ in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    "${displayBaseDir}/alacritty.nix"
     "${developmentBaseDir}/nix-dev.nix"
     "${neovimBaseDir}/config.nix"  
     "${webBaseDir}/firefox.nix"
+    "${terminalBaseDir}/alacritty.nix"
+    "${terminalBaseDir}/bash.nix"
+    "${terminalBaseDir}/starship.nix"
   ];
   home.packages = [];
 
@@ -35,6 +32,10 @@ in
     userName = "Loris Jautakas";
     userEmail = "lorisjautakas@gmail.com";
     extraConfig.init.defaultBranch = "main";
+  };
+
+  programs.eza = {
+    enable = true;
   };
 
   home.stateVersion = "25.05";

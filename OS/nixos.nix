@@ -18,6 +18,8 @@
     alacritty
   ];
 
+  fonts.packages = [ pkgs.nerd-fonts.fira-code ]; # needed for exa --icons to work
+
   # Enable networking
   networking.networkmanager.enable = true;
 }

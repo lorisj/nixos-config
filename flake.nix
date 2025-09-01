@@ -7,11 +7,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
+    #neovim-nightly-overlay = {
+    #  url = "github:nix-community/neovim-nightly-overlay";
+    #};
     nvf = {
-      url = "github:notashelf/nvf?ref=v0.7"; # pin to stable release (0.7), 
+      url = "github:lorisj/nvf?ref=stable"; # pin to stable release
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
