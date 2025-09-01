@@ -22,7 +22,7 @@ in
     "${neovimBaseDir}/config.nix"  
     "${webBaseDir}/firefox.nix"
     "${terminalBaseDir}/alacritty.nix"
-    "${terminalBaseDir}/bash.nix"
+    "${terminalBaseDir}/bash-exa.nix"
     "${terminalBaseDir}/starship.nix"
   ];
   home.packages = [];
@@ -34,9 +34,6 @@ in
     extraConfig.init.defaultBranch = "main";
   };
 
-  #programs.eza = {
-  #  enable = true;
-  #};
 
   home.stateVersion = "25.05";
 

@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let 
 shellAliases = {
-    #ls = "eza --icons";
+    ls = "eza --icons";
     gstatus = "git status";
     gadd = "git add";
     gcom = "git commit";
@@ -10,6 +10,9 @@ shellAliases = {
   };
 #colors = conifg.colorScheme.palette; # colors.base00, ... 
 in{
+  programs.exa = {
+    enable = true;
+  };
   programs.bash = {
     enable = true;
     inherit shellAliases;
