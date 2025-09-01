@@ -1,4 +1,4 @@
-{ config, pkgs, nvf, ... } @ inputs :
+{ config, pkgs, nvf, inputs, ... }:
 {
     imports = [
 	nvf.homeManagerModules.default
@@ -7,11 +7,12 @@
         enable = true;
         settings = {
 	    vim = {
-		theme = {
-		    enable = true;
-	            name = "solarized";
-	            style = "dark";
-		};
+                package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+		#theme = {
+		#    enable = true;
+	        #    name = "solarized";
+	        #    style = "dark";
+		#};
 		#languages = {
 		    #nix = {
 		    #	enable = true;

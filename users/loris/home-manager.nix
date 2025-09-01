@@ -18,6 +18,7 @@ let
   displayBaseDir = "${moduleBaseDir}/display";
   developmentBaseDir = "${moduleBaseDir}/development";
   neovimBaseDir = "${developmentBaseDir}/neovim";
+  webBaseDir = "${moduleBaseDir}/web";
 in
 {
   imports = [
@@ -25,6 +26,7 @@ in
     "${displayBaseDir}/alacritty.nix"
     "${developmentBaseDir}/nix-dev.nix"
     "${neovimBaseDir}/config.nix"  
+    "${webBaseDir}/firefox.nix"
   ];
   home.packages = [];
 

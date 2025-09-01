@@ -12,7 +12,6 @@
 
   # User independent packages
   environment.systemPackages = with pkgs; [
-    vim 
     wget
     git
     gnumake # makefiles
