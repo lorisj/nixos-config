@@ -34,9 +34,9 @@ in
     extraConfig.init.defaultBranch = "main";
   };
 
-  programs.eza = {
-    enable = true;
-  };
+  #programs.eza = {
+  #  enable = true;
+  #};
 
   home.stateVersion = "25.05";
 

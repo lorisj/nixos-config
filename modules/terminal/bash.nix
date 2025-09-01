@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let 
 shellAliases = {
-    ls = "eza --icons";
+    #ls = "eza --icons";
     gstatus = "git status";
     gadd = "git add";
     gcom = "git commit";
