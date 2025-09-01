@@ -11,7 +11,7 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
     nvf = {
-      url = "github:notashelf/nvf";
+      url = "github:notashelf/nvf?ref=v0.7"; # pin to stable release (0.7), 
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
