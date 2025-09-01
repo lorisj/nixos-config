@@ -17,8 +17,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs =
-    {
+  outputs =    {
       self,
       nixpkgs,
       home-manager,
@@ -27,13 +26,19 @@
     }@inputs:
     let
       overlays = [ ];
+
+      replace-by-attr-set = import ./lib/replace-by-attr-set.nix;
+      
+      helpers = {replace-by-attr-set};
+
       mkSystem = import ./lib/mksystem.nix {
         inherit
           inputs
           overlays
           nixpkgs
           home-manager
-	  nvf
+	        nvf
+          helpers
           ;
       };
       registry = import ./lib/registry.nix;
