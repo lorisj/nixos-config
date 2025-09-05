@@ -17,6 +17,19 @@ in
     enable = true;
     settings = {
       vim = {
+        keymaps = [{
+          key = ":ff";
+          mode = ["n"];
+          action = ":Telescope find_files";
+          silent = true;
+          desc = "Find files";
+        }];
+        extraPlugins = {
+           aerial = {
+              package = pkgs.vimPlugins.aerial-nvim;
+              setup = "require('aerial').setup {}";
+           };
+        };
         #package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
         theme = {
           enable = true;
