@@ -4,6 +4,7 @@
   flake.nixosConfigurations.hpspec = inputs.nixpkgs.lib.nixosSystem {
 
     modules = [
+      inputs.home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
       ../../modules/nixos/default.nix
       {
@@ -30,6 +31,14 @@
         services.printing.enable = true;
 
         system.stateVersion = "25.11";
+	nix.settings.experimental-features = [
+	   "nix-command"
+	   "flakes"
+	];
+
+       # Allow unfree packages
+       nixpkgs.config.allowUnfree = true;
+
       }
     ];
   };

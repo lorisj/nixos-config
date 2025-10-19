@@ -1,6 +1,8 @@
 { lib, config, ... }:
 {
-  options.gitConfig = lib.types.submodule {
+  options.gitConfig = lib.mkOption {
+
+type = lib.types.submodule {
     options = {
       userName = lib.mkOption {
         type = lib.types.str;
@@ -10,6 +12,7 @@
       };
     };
   };
+};
   config = {
     programs.git = {
       enable = true;
