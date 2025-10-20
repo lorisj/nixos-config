@@ -337,11 +337,11 @@
     },
     "nix-helpers": {
       "locked": {
-        "lastModified": 1760837256,
-        "narHash": "sha256-MJm9rAExU2fXWRG/KcGjw279wiJ15yohiob1C/8glx8=",
+        "lastModified": 1760981201,
+        "narHash": "sha256-7yc5KnR2830WO9jfrAhY0X2usAHFLo08Fk3lZSK+k5c=",
         "owner": "lorisj",
         "repo": "nix-helpers",
-        "rev": "e0fdc866924c0320d4dd563d3a82f6abacad95cb",
+        "rev": "f76379ca9d4e30a9be5e219f3c02e5ea443c9114",
         "type": "github"
       },
       "original": {

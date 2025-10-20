@@ -2,13 +2,10 @@
 let
   users = map (fileName : lib.removeSuffix ".nix" fileName ) (builtins.attrNames (builtins.readDir ../../users));
   getUserContent = userName: import ../../users/${userName}.nix;
+  nixosModules = builtins.filter (file: file != ./default.nix) (inputs.nix-helpers.lib.find-nix-files ./.);
 in 
 {
-imports = ([
-    ./display/gnome.nix
-    ./network/network-manager.nix
-    ./nix/nix-settings.nix
-  ])++ [
+imports = nixosModules ++ [
 {
 home-manager.useGlobalPkgs = true;
 home-manager.sharedModules = [
@@ -37,7 +34,6 @@ home-manager.users = builtins.listToAttrs (
       );
 }
 ];
-  # imports = builtins.filter (file: file != ./default.nix) (inputs.nix-helpers.lib.find-nix-files ./.);
 
 
 environment.systemPackages = with pkgs;[

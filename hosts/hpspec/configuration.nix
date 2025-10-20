@@ -1,8 +1,8 @@
 # flake parts module w/ nixos config
-{ inputs, ... }:
+{ flake, inputs, ... }:
 {
   flake.nixosConfigurations.hpspec = inputs.nixpkgs.lib.nixosSystem {
-
+    specialArgs = { inherit inputs; };
     modules = [
       inputs.home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
@@ -31,13 +31,13 @@
         services.printing.enable = true;
 
         system.stateVersion = "25.11";
-	nix.settings.experimental-features = [
-	   "nix-command"
-	   "flakes"
-	];
+        nix.settings.experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
 
-       # Allow unfree packages
-       nixpkgs.config.allowUnfree = true;
+        # Allow unfree packages
+        nixpkgs.config.allowUnfree = true;
 
       }
     ];

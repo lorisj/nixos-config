@@ -17,16 +17,15 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
-
   };
 
   outputs =
     inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports =
-	# import home-manager as flake parts module so don't have to put it in every config
-	#[inputs.home-manager.flakeModules.home-manager]
-	#++
+        # import home-manager as flake parts module so don't have to put it in every config
+        #[inputs.home-manager.flakeModules.home-manager]
+        #++
         (
           with builtins;
           map (moduleName: ./modules/flake-parts/${moduleName}) (attrNames (readDir ./modules/flake-parts))
@@ -52,6 +51,14 @@
           # Per-system attributes can be defined here. The self' and inputs'
           # module parameters provide easy access to attributes of the same
           # system.
+          # TODO: replace specialArgs with this overlay, currently doesn't work for some reason
+          #_module.args.pkgs = import inputs.nixpkgs {
+          #  inherit system;
+          #  overlays = [
+          #    inputs.nix-helpers.overlays.nhLib-overlay
+          #  ];
+          #  config.allowUnfree = true;
+          #};
         };
 
       flake = {
