@@ -39,6 +39,5 @@ home-manager.users = builtins.listToAttrs (
 environment.systemPackages = with pkgs;[
 wget
 gnumake
-alacritty
 ];
 }
