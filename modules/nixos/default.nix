@@ -1,7 +1,7 @@
-{ inputs, pkgs, ... }:
+{ inputs, lib, pkgs, ... }:
 let
-  users = builtins.attrNames (builtins.readDir ../../users);
-  getUserContent = userName: import ../../users/${userName};
+  users = map (fileName : lib.removeSuffix ".nix" fileName ) (builtins.attrNames (builtins.readDir ../../users));
+  getUserContent = userName: import ../../users/${userName}.nix;
 in 
 {
 imports = ([
@@ -27,6 +27,7 @@ users.users = builtins.listToAttrs (
           };
         }) users
       );
+
 
 home-manager.users = builtins.listToAttrs (
         builtins.map (userName: {
