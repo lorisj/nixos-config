@@ -17,4 +17,8 @@ in{
     enable = true;
     inherit shellAliases;
   };
+  
+  home.packages = [
+    pkgs.nerd-fonts.fira-code # needed for exa --icons to work
+  ];
 }
