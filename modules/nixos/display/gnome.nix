@@ -5,9 +5,9 @@
 }:
 {
   options = {
-    nixos.display.gnome.enable = lib.mkEnableOption "enables gnome";
+    nixos.display.gnome.enabled = lib.mkEnableOption "enables gnome";
   };
-  config = lib.mkIf config.nixos.display.gnome.enable {
+  config = lib.mkIf config.nixos.display.gnome.enabled {
 
     services.xserver.enable = true;
 

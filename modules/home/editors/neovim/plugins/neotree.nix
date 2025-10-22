@@ -9,9 +9,9 @@
       }
       {
         mode = "n";
-	key = "<leader>b";
-	action = ":Neotree action=focus reveal<CR>";
-	options.silent = true;
+        key = "<leader>b";
+        action = ":Neotree action=focus reveal<CR>";
+        options.silent = true;
       }
     ];
     plugins.neo-tree = {

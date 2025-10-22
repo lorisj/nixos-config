@@ -32,7 +32,7 @@
 
         system.stateVersion = "25.11";
 
-	nixos.display.gnome.enable = true;
+        nixos.display.hyprland.enabled = true;
       }
     ];
   };
