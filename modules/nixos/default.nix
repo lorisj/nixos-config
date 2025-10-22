@@ -15,6 +15,7 @@ let
 in
 {
   imports = nixosModules ++ [
+    inputs.stylix.nixosModules.stylix
     {
       home-manager.useGlobalPkgs = true;
       home-manager.sharedModules = [
