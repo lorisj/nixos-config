@@ -2,17 +2,17 @@
 {
   options.gitConfig = lib.mkOption {
 
-type = lib.types.submodule {
-    options = {
-      userName = lib.mkOption {
-        type = lib.types.str;
-      };
-      userEmail = lib.mkOption {
-        type = lib.types.str;
+    type = lib.types.submodule {
+      options = {
+        userName = lib.mkOption {
+          type = lib.types.str;
+        };
+        userEmail = lib.mkOption {
+          type = lib.types.str;
+        };
       };
     };
   };
-};
   config = {
     programs.git = {
       enable = true;

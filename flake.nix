@@ -9,14 +9,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvf = {
-      url = "github:lorisj/nvf?ref=stable"; # pin to stable release
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      # url = "/home/gaetan/nix/nixvim/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
   };
 
   outputs =

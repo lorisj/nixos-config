@@ -3,7 +3,7 @@
   lib,
   pkgs,
   ...
-} @ moduleAttrs:
+}@moduleAttrs:
 let
   users = map (fileName: lib.removeSuffix ".nix" fileName) (
     builtins.attrNames (builtins.readDir ../../users)

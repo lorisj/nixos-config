@@ -1,4 +1,5 @@
-{inputs, ...} : {
+{ inputs, ... }:
+{
   gitConfig = {
     userName = "lorisj-elefant";
     userEmail = "loris@elefant.gg";

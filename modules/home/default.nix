@@ -1,9 +1,8 @@
 { inputs, ... }:
 {
   home.stateVersion = "24.05";
-  imports =[ 
+  imports = [
     inputs.nix-colors.homeManagerModules.default
-  ] ++ builtins.filter (file: file != ./default.nix) (
-    inputs.nix-helpers.lib.find-nix-files ./.
-  );
+  ]
+  ++ builtins.filter (file: file != ./default.nix) (inputs.nix-helpers.lib.find-nix-files ./.);
 }

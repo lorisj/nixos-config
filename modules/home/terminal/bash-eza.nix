@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
-let 
-shellAliases = {
+let
+  shellAliases = {
     ls = "eza --icons";
     gstatus = "git status";
     gadd = "git add";
@@ -8,8 +8,9 @@ shellAliases = {
     gcheck = "git checkout";
     gpush = "git push";
   };
-#colors = conifg.colorScheme.palette; # colors.base00, ... 
-in{
+  #colors = conifg.colorScheme.palette; # colors.base00, ...
+in
+{
   programs.eza = {
     enable = true;
   };
@@ -17,7 +18,7 @@ in{
     enable = true;
     inherit shellAliases;
   };
-  
+
   home.packages = [
     pkgs.nerd-fonts.fira-code # needed for exa --icons to work
   ];
