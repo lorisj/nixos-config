@@ -14,15 +14,15 @@
       enable = true;
       xwayland.enable = true;
     };
-    #environment.systemPackages = with pkgs; [
-    #	waybar
-    #   dunst
-    #	libnotify
-    #	rofi
-    #    ];
+    environment.systemPackages = with pkgs; [
+    	waybar
+       dunst
+       libnotify
+    	rofi
+        ];
 
-    #    xdg.portal.enable = true;
-    #    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+        xdg.portal.enable = true;
+       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
     environment.sessionVariables = {
       # if cursor becomes invisible enable this:
@@ -33,8 +33,8 @@
     };
 
     hardware = {
-      #      opengl.enable = true;
-      #      nvidia.modesetting.enable = config.nixos.display.hyprland.enableNvidiaSupport;
+            opengl.enable = true;
+            nvidia.modesetting.enable = config.nixos.display.hyprland.enableNvidiaSupport;
     };
   };
 }
