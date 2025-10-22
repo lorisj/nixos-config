@@ -31,6 +31,8 @@
         services.printing.enable = true;
 
         system.stateVersion = "25.11";
+
+	nixos.display.gnome.enable = true;
       }
     ];
   };
