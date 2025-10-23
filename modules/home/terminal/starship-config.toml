@@ -22,6 +22,7 @@ $rust\
 $scala\
 [](fg:#base0C bg:#base0D)\
 $docker_context\
+$nix_shell\
 [](fg:#base0D bg:#base02)\
 $time\
 [ ](fg:#base02)\
@@ -74,6 +75,10 @@ format = '[ $symbol ($version) ]($style)'
 symbol = " "
 style = "bg:#base0C"
 format = '[ $symbol ($version) ]($style)'
+
+[nix_shell]
+style = "bg:#base0D"
+format = '[$symbol(\($name\))]($style)'
 
 [docker_context]
 symbol = " "
