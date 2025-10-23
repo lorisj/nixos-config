@@ -14,7 +14,7 @@
       "$mod" = "super";
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
-      "$menu" = "rofi -show drun --style=${./rofi-style.css}";
+      "$menu" = "wofi --show drun";
       monitor = [
         ",prefered,auto,${builtins.toString osConfig.nixos.display.hyprland.displayScaling}"
       ];

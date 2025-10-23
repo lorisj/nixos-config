@@ -23,7 +23,6 @@
       waybar
       dunst
       libnotify
-      rofi
     ];
 
     xdg.portal.enable = true;
