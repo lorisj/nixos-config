@@ -46,6 +46,7 @@
         exec Hyprland
       fi
     '';
+    services.displayManager.sddm.enable = true;
 
   };
 }
