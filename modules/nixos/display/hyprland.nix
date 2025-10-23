@@ -41,12 +41,13 @@
       graphics.enable = true;
       nvidia.modesetting.enable = config.nixos.display.hyprland.enableNvidiaSupport;
     };
-    environment.loginShellInit = ''
-      if [ -z "$DISPLAY" ]; then
-        exec Hyprland
-      fi
-    '';
-    services.displayManager.sddm.enable = true;
+    #environment.loginShellInit = ''
+    #  if [ -z "$DISPLAY" ]; then
+    #    exec Hyprland
+    #  fi
+    #'';
+    #services.displayManager.sddm.enable = true;
+    #services.displayManager.sddm.wayland.enable = true;
 
   };
 }
