@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -10,15 +11,18 @@
       "$fileManager" = "dolphin";
       "$menu" = "rofi";
       monitor = [
-	",prefered,auto,1"
+        ",prefered,auto,1"
       ];
       decoration = {
-      	rounding = 15;
-	active_opacity = 0.9;
-	inactive_opacity = 0.7;
-	fullscreen_opacity = 0.9;
+        rounding = 15;
+        active_opacity = 0.95;
+        inactive_opacity = 0.8;
+        fullscreen_opacity = 0.99;
       };
-      
+
+      exec-once = [
+        "${pkgs.waybar}/bin/waybar"
+      ];
       bind = [
         "$mod, RETURN, exec, $terminal"
         "$mod SHIFT, Q, killactive,"
@@ -34,5 +38,9 @@
         "$mod, S, exec, hyprshot -m region"
       ];
     };
+
+    plugins = [
+      pkgs.hyprlandPlugins.hy3
+    ];
   };
 }
