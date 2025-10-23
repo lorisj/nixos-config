@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   options = {
     wallpaperPath = lib.mkOption {
