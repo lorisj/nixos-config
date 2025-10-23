@@ -22,11 +22,8 @@ in
         ../../modules/home/default.nix
       ];
       home-manager.extraSpecialArgs = {
-        inherit inputs;
         # TODO: figure out a better way to do this
-        sysConfig = {
-          hyprland = config.nixos.display.hyprland;
-        };
+        inherit inputs;
       };
       users.users = builtins.listToAttrs (
         builtins.map (userName: {

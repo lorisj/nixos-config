@@ -7,7 +7,7 @@
 {
   options = {
     nixos.display.hyprland.enabled = lib.mkEnableOption "hyprland";
-    nixos.display.hyprland.displayScaling = lib.mkOption{
+    nixos.display.hyprland.displayScaling = lib.mkOption {
       type = lib.types.int;
       default = 1;
       description = "window scaling";

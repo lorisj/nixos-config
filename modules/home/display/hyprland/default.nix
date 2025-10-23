@@ -1,4 +1,9 @@
-{ pkgs, config, sysConfig, ... }:
+{
+  pkgs,
+  config,
+  osConfig,
+  ...
+}:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -11,7 +16,7 @@
       "$fileManager" = "dolphin";
       "$menu" = "rofi -show drun --style=${./rofi-style.css}";
       monitor = [
-        ",prefered,auto,${builtins.toString sysConfig.hyprland.displayScaling}"
+        ",prefered,auto,${builtins.toString osConfig.nixos.display.hyprland.displayScaling}"
       ];
       decoration = {
         rounding = 15;
