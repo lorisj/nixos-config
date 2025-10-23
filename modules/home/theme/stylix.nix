@@ -6,6 +6,10 @@
       type = lib.types.path;
     };
   };
-  stylix.base16Scheme = config.colorScheme.palette;
-  stylix.image = config.wallpaperPath;
+  config = {
+
+    stylix.base16Scheme = config.colorScheme.palette;
+    stylix.image = config.wallpaperPath;
+
+  };
 }
