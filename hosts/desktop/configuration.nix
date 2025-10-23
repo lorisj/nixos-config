@@ -9,9 +9,9 @@
       ../../modules/nixos/default.nix
       {
         hardware.bluetooth.enable = true;
-	hardware.graphics.enable = true;
-	services.xserver.videoDrivers = ["nvidia"];
-	hardware.nvidia.open = true;
+        hardware.graphics.enable = true;
+        services.xserver.videoDrivers = [ "nvidia" ];
+        hardware.nvidia.open = true;
 
         time.timeZone = "America/Los_Angeles";
 

@@ -1,5 +1,6 @@
 {
   programs.bash.shellAliases = {
-    rr = "cd $(git rev-parse --show-toplevel)"; # goto repo root
+    cdrr = "cd $(git rev-parse --show-toplevel)"; # goto repo root
+    files = "thunar";
   };
 }

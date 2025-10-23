@@ -10,7 +10,7 @@
 window#waybar {
     background-color: #base00;
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    color: #base07;
     transition-property: background-color;
     transition-duration: .5s;
     
@@ -55,13 +55,14 @@ button:hover {
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
     background-color: #base07;
+    color: #base00;
 }
 
 #workspaces button {
     padding: 0 5px;
     padding:0px;
     margin-left: 0px;
-    color: #ffffff;
+    color: #base07;
 }
 
 #workspaces button:hover {
@@ -107,7 +108,7 @@ button:hover {
 
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: #base07;
 }
 
 #window,
@@ -125,17 +126,17 @@ button:hover {
 
 
 #clock {
-    background-color: #base04;
-    color: #000000;
+    background-color: #base03;
+    color: #base07;
 }
 
 #battery {
     background-color: #base09;
-    color: #000000;
+    color: #base07;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
+    color: #base07;
     background-color: #base0B;
 }
 
@@ -149,7 +150,7 @@ button:hover {
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
     background-color: #base0B;
-    color: #ffffff;
+    color: #base07;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -163,17 +164,17 @@ button:hover {
 
 #power-profiles-daemon.performance {
     background-color: #f53c3c;
-    color: #ffffff;
+    color: #base07;
 }
 
 #power-profiles-daemon.balanced {
     background-color: #2980b9;
-    color: #ffffff;
+    color: #base07;
 }
 
 #power-profiles-daemon.power-saver {
     background-color: #2ecc71;
-    color: #000000;
+    color: #base00;
 }
 
 label:focus {
@@ -182,12 +183,12 @@ label:focus {
 
 #cpu {
     background-color: #base0B;
-    color: #000000;
+    color: #base07;
 }
 
 #memory {
     background-color: #base0E;
-    color: #000000;
+    color: #base07;
 }
 
 #disk {
@@ -200,21 +201,22 @@ label:focus {
 
 #network {
     background-color: #base0C;
-    color: #000000;
+    color: #base07;
 }
 
 #network.disconnected {
     background-color: #base08;
+    color: #base07;
 }
 
 #pulseaudio {
     background-color: #base0A;
-    color: #000000;
+    color: #base07;
 }
 
 #pulseaudio.muted {
     background-color: #base05;
-    color: #2a5c45;
+    color: #base00;
 }
 
 #wireplumber {
@@ -242,7 +244,7 @@ label:focus {
 
 #temperature {
     background-color: #base0F;
-    color: #000000;
+    color: #base07;
 }
 
 #temperature.critical {
