@@ -9,6 +9,5 @@
   config = {
     stylix.base16Scheme = config.colorScheme.palette;
     stylix.image = config.wallpaperPath;
-
   };
 }
