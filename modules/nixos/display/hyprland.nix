@@ -13,6 +13,7 @@
       description = "window scaling";
     };
     nixos.display.hyprland.enableNvidiaSupport = lib.mkEnableOption "nvidia GPU support";
+    nixos.display.hyprland.laptopKeybinds = lib.mkEnableOption "laptop keybinds";
   };
   config = lib.mkIf config.nixos.display.hyprland.enabled {
     programs.hyprland = {
@@ -40,5 +41,11 @@
       graphics.enable = true;
       nvidia.modesetting.enable = config.nixos.display.hyprland.enableNvidiaSupport;
     };
+    environment.loginShellInit = ''
+      if [ -z "$DISPLAY" ]; then
+        exec Hyprland
+      fi
+    '';
+
   };
 }

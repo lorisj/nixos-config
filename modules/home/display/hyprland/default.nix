@@ -13,7 +13,7 @@
     settings = {
       "$mod" = "super";
       "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
+      "$fileManager" = "thunar";
       "$menu" = "wofi --show drun";
       monitor = [
         ",prefered,auto,${builtins.toString osConfig.nixos.display.hyprland.displayScaling}"
