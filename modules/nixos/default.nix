@@ -2,6 +2,7 @@
   inputs,
   lib,
   pkgs,
+  config,
   ...
 }@moduleAttrs:
 let
@@ -20,7 +21,13 @@ in
       home-manager.sharedModules = [
         ../../modules/home/default.nix
       ];
-      home-manager.extraSpecialArgs = { inherit inputs; };
+      home-manager.extraSpecialArgs = {
+        inherit inputs;
+        # TODO: figure out a better way to do this
+        sysConfig = {
+          hyprland = config.nixos.display.hyprland;
+        };
+      };
       users.users = builtins.listToAttrs (
         builtins.map (userName: {
           name = userName;

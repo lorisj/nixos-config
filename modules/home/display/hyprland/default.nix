@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, sysConfig, ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -9,9 +9,9 @@
       "$mod" = "super";
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
-      "$menu" = "rofi";
+      "$menu" = "rofi -show drun --style=${./rofi-style.css}";
       monitor = [
-        ",prefered,auto,1"
+        ",prefered,auto,${builtins.toString sysConfig.hyprland.displayScaling}"
       ];
       decoration = {
         rounding = 15;
@@ -23,6 +23,11 @@
       exec-once = [
         "${pkgs.waybar}/bin/waybar"
       ];
+
+      input = {
+        sensitivity = 0.2;
+      };
+
       bind = [
         "$mod, RETURN, exec, $terminal"
         "$mod SHIFT, Q, killactive,"

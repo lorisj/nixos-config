@@ -7,6 +7,11 @@
 {
   options = {
     nixos.display.hyprland.enabled = lib.mkEnableOption "hyprland";
+    nixos.display.hyprland.displayScaling = lib.mkOption{
+      type = lib.types.int;
+      default = 1;
+      description = "window scaling";
+    };
     nixos.display.hyprland.enableNvidiaSupport = lib.mkEnableOption "nvidia GPU support";
   };
   config = lib.mkIf config.nixos.display.hyprland.enabled {
