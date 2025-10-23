@@ -55,11 +55,13 @@ truncation_symbol = "…/"
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
-"Documents" = "󰈙 "
+"documents" = "󰈙 "
 "downloads" = " "
-"Music" = " "
-"Pictures" = " "
-"nixos-config" = ""
+"music" = " "
+"pictures" = " "
+"c" = ""
+"web" = ""
+"rl" = ""
 # Keep in mind that the order matters. For example:
 # "Important Documents" = " 󰈙 "
 # will not be replaced, because "Documents" was already substituted before.
