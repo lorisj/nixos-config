@@ -1,5 +1,6 @@
 {
   wayland.windowManager.hyprland.settings = {
+    "$mainMod" = "SUPER";
     bind = [
       "$mainMod, RETURN, exec, $terminal"
       "$mainMod SHIFT, Q, killactive,"
