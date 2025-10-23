@@ -6,6 +6,9 @@
     xwayland.enable = true;
     settings = {
       "$mod" = "super";
+      "$terminal" = "kitty";
+      "$fileManager" = "dolphin";
+      "$menu" = "rofi";
       monitor = [
 	",prefered,auto,1"
       ];
@@ -15,7 +18,7 @@
 	inactive_opacity = 0.7;
 	fullscreen_opacity = 0.9;
       };
-      "$mainMod" = "SUPER";
+      
       bind = [
         "$mod, RETURN, exec, $terminal"
         "$mod SHIFT, Q, killactive,"
