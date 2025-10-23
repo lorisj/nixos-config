@@ -5,10 +5,6 @@
   ...
 }:
 {
-  home.packages = [
-    pkgs.hyprcursor
-    pkgs.volantes-cursors
-  ];
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -22,41 +18,9 @@
       monitor = [
         ",prefered,auto,${builtins.toString osConfig.nixos.display.hyprland.displayScaling}"
       ];
-      decoration = {
-        rounding = 15;
-        active_opacity = 0.95;
-        inactive_opacity = 0.8;
-        fullscreen_opacity = 0.99;
-      };
 
       exec-once = [
         "${pkgs.waybar}/bin/waybar"
-      ];
-
-      input = {
-        sensitivity = 0.2;
-      };
-
-      bind = [
-        "$mod, RETURN, exec, $terminal"
-        "$mod SHIFT, Q, killactive,"
-        "$mod SHIFT, E, exit,"
-        "$mod, M, exec, $fileManager"
-        "$mod, V, togglefloating,"
-        "$mod, R, exec, $menu"
-        "$mod, P, pseudo," # dwindle
-        "$mod, J, togglesplit," # dwindle
-        "$mod, L, exec,  systemctl suspend"
-        "$mod, F, fullscreen"
-        "$mod, B, exec, firefox"
-        "$mod, S, exec, hyprshot -m region"
-      ];
-      env = [
-        "XCURSOR_THEME,volantes_cursors"
-        "HYPRCURSOR_SIZE,24"
-        "XCURSOR_SIZE,24"
-        "HYPRCURSOR_THEME,volantes_cursors"
-        "WLR_NO_HARDWARE_CURSORS,1"
       ];
     };
 
