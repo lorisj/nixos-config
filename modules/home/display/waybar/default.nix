@@ -1,7 +1,10 @@
-{
+{inputs, lib, config, ...}: 
+let
+  colors = config.colorScheme.palette; # = { base00, ...}
+in {
   programs.waybar = {
     enable = true;
-    style = builtins.readFile ./style.css;
+    style = inputs.nix-helpers.lib.replace-by-set {inherit lib;} colors  (builtins.readFile ./style.css);
     settings = [
       {
         "layer" = "top";
