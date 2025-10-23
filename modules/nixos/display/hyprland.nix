@@ -6,8 +6,8 @@
 }:
 {
   options = {
-    nixos.display.hyprland.enabled = lib.mkEnableOption "enable hyprland";
-    nixos.display.hyprland.enableNvidiaSupport = lib.mkEnableOption "enable if you are running on an nvidia gpu";
+    nixos.display.hyprland.enabled = lib.mkEnableOption "hyprland";
+    nixos.display.hyprland.enableNvidiaSupport = lib.mkEnableOption "nvidia GPU support";
   };
   config = lib.mkIf config.nixos.display.hyprland.enabled {
     programs.hyprland = {
@@ -15,14 +15,14 @@
       xwayland.enable = true;
     };
     environment.systemPackages = with pkgs; [
-    	waybar
-       dunst
-       libnotify
-    	rofi
-        ];
+      waybar
+      dunst
+      libnotify
+      rofi
+    ];
 
-        xdg.portal.enable = true;
-       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    xdg.portal.enable = true;
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
     environment.sessionVariables = {
       # if cursor becomes invisible enable this:
@@ -33,8 +33,8 @@
     };
 
     hardware = {
-            opengl.enable = true;
-            nvidia.modesetting.enable = config.nixos.display.hyprland.enableNvidiaSupport;
+      opengl.enable = true;
+      nvidia.modesetting.enable = config.nixos.display.hyprland.enableNvidiaSupport;
     };
   };
 }

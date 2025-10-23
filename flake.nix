@@ -16,8 +16,8 @@
     };
     nix-colors.url = "github:misterio77/nix-colors";
     stylix = {
-	url = "github:nix-community/stylix";
-	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

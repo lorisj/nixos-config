@@ -5,7 +5,7 @@
 }:
 {
   options = {
-    nixos.display.gnome.enabled = lib.mkEnableOption "enables gnome";
+    nixos.display.gnome.enabled = lib.mkEnableOption "gnome";
   };
   config = lib.mkIf config.nixos.display.gnome.enabled {
 

@@ -33,6 +33,8 @@
         system.stateVersion = "25.11";
 
         nixos.display.hyprland.enabled = true;
+
+        nixos.display.hyprland.enableNvidiaSupport = true;
       }
     ];
   };
