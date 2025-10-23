@@ -1,9 +1,35 @@
 {
-  wayland.windowManager.hyprland.settings = {
-    decoration = {
-      shadow_offset = "0.5";
-      "col.shadow" = "rgba(00000099)";
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = null;
+    portalPackage = null;
+    xwayland.enable = true;
+    settings = {
+      "$mod" = "super";
+      monitor = [
+	",prefered,auto,1"
+      ];
+      decoration = {
+      	rounding = 15;
+	active_opacity = 0.9;
+	inactive_opacity = 0.7;
+	fullscreen_opacity = 0.9;
+      };
+      "$mainMod" = "SUPER";
+      bind = [
+        "$mod, RETURN, exec, $terminal"
+        "$mod SHIFT, Q, killactive,"
+        "$mod SHIFT, E, exit,"
+        "$mod, M, exec, $fileManager"
+        "$mod, V, togglefloating,"
+        "$mod, R, exec, $menu"
+        "$mod, P, pseudo," # dwindle
+        "$mod, J, togglesplit," # dwindle
+        "$mod, L, exec,  systemctl suspend"
+        "$mod, F, fullscreen"
+        "$mod, B, exec, firefox"
+        "$mod, S, exec, hyprshot -m region"
+      ];
     };
-
   };
 }
