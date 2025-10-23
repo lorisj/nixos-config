@@ -25,7 +25,7 @@ in
       "$mod, R, exec, $menu"
       "$mod, P, pseudo," # dwindle
       "$mod, J, togglesplit," # dwindle
-      #"$mod, L, exec, systemctl suspend"
+      "$mod, L, exec, bash -c 'hyprlock & sleep 0.2 && systemctl suspend'"
       "$mod, F, fullscreen"
       "$mod, B, exec, firefox"
       "$mod, S, exec, hyprshot -m region"

@@ -9,5 +9,7 @@
   config = {
     stylix.base16Scheme = config.colorScheme.palette;
     stylix.image = config.wallpaperPath;
+    stylix.targets.hyprlock.enable = false;
+    #stylix.targets.firefox.profileNames = [ "default" ];
   };
 }
