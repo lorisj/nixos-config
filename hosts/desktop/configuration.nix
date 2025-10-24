@@ -12,7 +12,7 @@
         hardware.graphics.enable = true;
         services.xserver.videoDrivers = [ "nvidia" ];
         hardware.nvidia.open = true;
-
+        #nixpkgs.config.cudaSupport = true;
         time.timeZone = "America/Los_Angeles";
 
         i18n.defaultLocale = "en_US.UTF-8";
