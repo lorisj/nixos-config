@@ -13,5 +13,6 @@
     # https://dt.iki.fi/base16-previews
     # https://github.com/GaetanLepage/nix-config/tree/master/modules
     #];
+    extraGroups = [ "docker" ];
   };
 }
